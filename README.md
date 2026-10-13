@@ -2,13 +2,13 @@
 
 <img src="yakkety-mascot/icon/png/yakkety-icon-128.png" width="72" alt="Yakkety app icon">
 
-The shared home for the YAC's visual identity: mascots, icons, colour tokens and the rules for using them. If you're making something for YAC (slides, a website, an app, a social post), start here so everything looks like it belongs together.
+The shared home for the visual identity of the NCSSM Young Alumni Council (YAC): mascots, icons, colour tokens and the rules for using them. If you're making something for YAC (slides, a website, an app, a social post), start here so everything looks like it belongs together.
 
 ## What's inside
 
 | Directory | What it is | Status |
 | --- | --- | --- |
-| [`yakkety-mascot/`](yakkety-mascot/) | Yakkety, the YAC's AI secretary: a Toffee-coloured yak, with five expressions, app icons, a favicon, colour tokens, usage rules and the research behind it | v1, locked |
+| [`yakkety-mascot/`](yakkety-mascot/) | Yakkety, the YAC's AI Secretary: a Toffee-coloured yak, with five expressions, app icons, chat avatars, a favicon, colour tokens, usage rules and the research behind it | v1, locked |
 
 ## Conventions
 
