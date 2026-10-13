@@ -19,19 +19,18 @@ To check it, open the link in an incognito window; you should see the yak on its
 
 ## Step 2a: Incoming webhooks
 
-The avatar belongs to the webhook and is set when the webhook is created. You need to be able to manage apps in the space.
+Today, Yakkety's Chat posts come from **Yakkety Notes** (`ncssm-yac/yac-meeting-notes-relocator`), through one webhook in each of four spaces: **YAC General**, **YAC Leadership**, **YAC Exec** and **YAC IT**. The avatar belongs to each webhook. Editing a webhook's name or avatar doesn't change its link, so no script properties or hosts need updating.
+
+You need to be able to manage apps in each space. For each of the four spaces:
 
 1. In Google Chat, open the space and click the **space name** at the top, then **Apps & integrations**.
-2. Under **Webhooks**, click **Manage webhooks**, or **Add webhooks** if there are none yet.
-3. **If your existing webhook has an edit (pencil) option:** change **Avatar URL** to the link from step 1, set **Name** to `Yakkety`, and save. You're done; the next message shows the new avatar.
-4. **If it can't be edited:**
-   1. Click **Add another**, set **Name** to `Yakkety` and **Avatar URL** to the link from step 1, then **Save**.
-   2. Open the new webhook's **More (⋮)** menu and choose **Copy link**.
-   3. Wherever the old webhook URL is stored (a script's properties, a secrets manager or an environment variable), replace it with the new URL.
-   4. Send a test message and check it shows the yak. Then delete the old webhook from **Manage webhooks**.
-5. Repeat for each space Yakkety posts to.
+2. Under **Webhooks**, click **Manage webhooks**.
+3. Next to the `Yakkety` webhook, click the edit (pencil) icon.
+4. Replace **Avatar URL** with the link from step 1, keep **Name** as `Yakkety`, and click **Save**.
 
-Treat webhook URLs like passwords: anyone with one can post into the space. Keep them out of GitHub, docs and chat messages.
+Don't delete and re-create a webhook: that changes its link, and every host's Script Property would need updating.
+
+To check: in the Apps Script project, run `testChatNotify`. Each space gets a hello from Yakkety, which should now show the yak.
 
 **Inside messages:** if a script sends card messages (`cardsV2`), the card header can also show the avatar. Set `header.imageUrl` to the same link and `header.imageType` to `CIRCLE`.
 
