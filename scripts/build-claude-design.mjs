@@ -328,60 +328,69 @@ out("README.md", read("scripts/claude-design-readme.md"));
 const ASSETS = {
   "NCSSM marks": {
     tile: "l",
+    // name: [upload id, repo path]
     files: {
-      "ncssm-horizontal-fullcolor.png": "87dabefae96fe5fe3d37c005019de1e1",
-      "ncssm-abbreviated-fullcolor.png": "cbe6357f9aaae40ccfec3632d92b4518",
-      "ncssm-foundation-blue.png": "a8cb5e894e4f51613cfb6ab87b5a02de",
-      "ncssm-foundation-white.png": "6ddcba12fc3d925326313c164fd478f6",
-      "durham-unicorn-blue.png": "a3122ca3328d2f7391c22bf59520a488",
-      "morganton-dragon-head-green.png": "9472706ecccf209e6ea3ae7c27c28b33",
+      "ncssm-horizontal-fullcolor.svg": ["63ce244a3c91c39713d1aa7592ce707f", "ncssm-marks/svg/ncssm-horizontal-fullcolor.svg"],
+      "ncssm-stacked-fullcolor.svg": ["f0fca0d92802585b15fb7359cf799d3f", "ncssm-marks/svg/ncssm-stacked-fullcolor.svg"],
+      "ncssm-abbreviated-fullcolor.svg": ["e0dc3c0fc0631a8bd8a72a4098b7e5d0", "ncssm-marks/svg/ncssm-abbreviated-fullcolor.svg"],
+      "ncssm-horizontal-fullcolor.png": ["87dabefae96fe5fe3d37c005019de1e1", "ncssm-marks/png/ncssm-horizontal-fullcolor.png"],
+      "ncssm-stacked-fullcolor.png": ["8a66b72feee12145ec18068a505cbce3", "ncssm-marks/png/ncssm-stacked-fullcolor.png"],
+      "ncssm-abbreviated-fullcolor.png": ["cbe6357f9aaae40ccfec3632d92b4518", "ncssm-marks/png/ncssm-abbreviated-fullcolor.png"],
+      "ncssm-foundation-blue.png": ["a8cb5e894e4f51613cfb6ab87b5a02de", "ncssm-marks/png/ncssm-foundation-blue.png"],
+      "ncssm-foundation-white.png": ["6ddcba12fc3d925326313c164fd478f6", "ncssm-marks/png/ncssm-foundation-white.png"],
+      "durham-unicorn-blue.png": ["a3122ca3328d2f7391c22bf59520a488", "ncssm-marks/png/durham-unicorn-blue.png"],
+      "morganton-dragon-head-green.png": ["9472706ecccf209e6ea3ae7c27c28b33", "ncssm-marks/png/morganton-dragon-head-green.png"],
     },
-    src: (f) => `ncssm-marks/png/${f}`,
   },
   Yakkety: {
     tile: "m",
     files: {
-      "yakkety-idle.svg": "4ff091e26a8cbb950ac3714cc327383c",
-      "yakkety-thinking.svg": "081776ff900405515133c86e8d02b767",
-      "yakkety-done.svg": "2576e0e1c2cfbe447aaaae2fc6f34e49",
-      "yakkety-needs-you.svg": "2685707a16f97bbe478a5b1aa3a7f8c7",
-      "yakkety-oops.svg": "4576dd6848ffc952505697cf949c9a39",
-      "yakkety-icon.svg": "092bc8910fb91393b893dc0ded3e9f18",
-      "yakkety-icon-512.png": "227c94214ee892258909ffde1ac2bdc0",
+      "yakkety-idle.svg": ["4ff091e26a8cbb950ac3714cc327383c", "yakkety-mascot/svg/yakkety-idle.svg"],
+      "yakkety-thinking.svg": ["081776ff900405515133c86e8d02b767", "yakkety-mascot/svg/yakkety-thinking.svg"],
+      "yakkety-done.svg": ["2576e0e1c2cfbe447aaaae2fc6f34e49", "yakkety-mascot/svg/yakkety-done.svg"],
+      "yakkety-needs-you.svg": ["2685707a16f97bbe478a5b1aa3a7f8c7", "yakkety-mascot/svg/yakkety-needs-you.svg"],
+      "yakkety-oops.svg": ["4576dd6848ffc952505697cf949c9a39", "yakkety-mascot/svg/yakkety-oops.svg"],
+      "yakkety-icon.svg": ["092bc8910fb91393b893dc0ded3e9f18", "yakkety-mascot/icon/yakkety-icon.svg"],
+      "yakkety-icon-512.png": ["227c94214ee892258909ffde1ac2bdc0", "yakkety-mascot/icon/png/yakkety-icon-512.png"],
+      "yakkety-avatar.svg": ["905b6fef8929890f4b495ed8c250bb3c", "yakkety-mascot/avatar/yakkety-avatar.svg"],
+      "yakkety-avatar-circle.svg": ["0211c13d6b7167f02df39ee3b39fe37c", "yakkety-mascot/avatar/yakkety-avatar-circle.svg"],
+      "yakkety-avatar-512.png": ["987a8947a60fe7acd71975339d26807b", "yakkety-mascot/avatar/yakkety-avatar-512.png"],
     },
-    src: (f) => (f.startsWith("yakkety-icon") ? (f.endsWith(".png") ? "yakkety-mascot/icon/png/yakkety-icon-512.png" : "yakkety-mascot/icon/yakkety-icon.svg") : `yakkety-mascot/svg/${f}`),
   },
 };
 const assetGroups = {};
 for (const [group, g] of Object.entries(ASSETS)) {
   const files = {};
-  for (const [name, blob] of Object.entries(g.files)) {
-    files[name] = { name, blob, size: statSync(join(root, g.src(name))).size, type: name.endsWith(".svg") ? "image/svg+xml" : "image/png" };
+  for (const [name, [blob, src]] of Object.entries(g.files)) {
+    files[name] = { name, blob, size: statSync(join(root, src)).size, type: name.endsWith(".svg") ? "image/svg+xml" : "image/png" };
   }
   assetGroups[group] = { name: group, tile: g.tile, order: Object.keys(g.files), files };
 }
 out("assets/NCSSM marks/README.md", `# NCSSM marks
 
-NCSSM's official logos, unchanged master files from NCSSM Communications. Full colour on \`paper\` or \`white\`; the white Foundation logo on \`blue\` or \`midnight\`.
+NCSSM's official logos, unchanged master files from NCSSM Communications. Full colour on \`paper\` or \`white\`; the white Foundation logo on \`blue\` or \`midnight\`. Prefer the SVG wherever it works; the PNGs are for tools that can't take SVG.
 
-- \`ncssm-horizontal-fullcolor.png\`: the default NCSSM logo for slides and web (catalyst plus the school's full name).
-- \`ncssm-abbreviated-fullcolor.png\`: catalyst over "NCSSM", for square spaces, apparel, or after the full logo has appeared.
+- \`ncssm-horizontal-fullcolor.svg\` / \`.png\`: the default NCSSM logo for slides and web (catalyst beside the school's full name).
+- \`ncssm-stacked-fullcolor.svg\` / \`.png\`: catalyst above the full name; NCSSM's choice for print, and for square or tall spaces where the full name should show.
+- \`ncssm-abbreviated-fullcolor.svg\` / \`.png\`: catalyst over "NCSSM", for small square spaces, apparel, or after the full logo has appeared.
 - \`ncssm-foundation-blue.png\` / \`ncssm-foundation-white.png\`: the NCSSM Foundation logo, for Foundation events such as the Reception.
 - \`durham-unicorn-blue.png\`: NCSSM-Durham athletics mascot; school spirit and clubs only.
 - \`morganton-dragon-head-green.png\`: NCSSM-Morganton athletics mascot; school spirit and clubs only.
 
-Never separate the catalyst from the school's name, recolour, stretch or redraw a mark. Vector, stacked, grayscale and reversed versions: the NCSSM Communications Kiosk (sites.google.com/ncssm.edu/commskiosk/brand-logos). The YAC's own logo is not settled; don't make one.
+Never separate the catalyst from the school's name, recolour, stretch or redraw a mark. Print (CMYK), grayscale and reversed versions: the NCSSM Brand Basics deck or the NCSSM Communications Kiosk (sites.google.com/ncssm.edu/commskiosk/brand-logos). The YAC's own logo is not settled; don't make one.
 `);
 out("assets/Yakkety/README.md", `# Yakkety
 
-Yakkety, the YAC's AI secretary: a Toffee yak with five expressions and an app icon. Flat colour in its own palette (\`yakkety-toffee\` and friends); it is not recoloured to Blue or Orange.
+Yakkety, the YAC's AI secretary: a Toffee yak with five expressions, an app icon and a chat avatar. Flat colour in its own palette (\`yakkety-toffee\` and friends); it is not recoloured to Blue or Orange.
 
 - \`yakkety-idle.svg\`: the default face.
 - \`yakkety-thinking.svg\`: working on something.
 - \`yakkety-done.svg\`: a real win; use sparingly.
 - \`yakkety-needs-you.svg\`: waiting on a decision.
 - \`yakkety-oops.svg\`: something failed; honest, not dramatic.
-- \`yakkety-icon.svg\`, \`yakkety-icon-512.png\`: app icon and avatar on the \`yakkety-cream-tile\` background.
+- \`yakkety-icon.svg\`, \`yakkety-icon-512.png\`: app icon on the \`yakkety-cream-tile\` background, rounded corners.
+- \`yakkety-avatar.svg\`, \`yakkety-avatar-512.png\`: round profile picture (Google Chat, Yaktion Items). Square on cream with extra margin, so a platform's circle crop never clips the horns or hooves.
+- \`yakkety-avatar-circle.svg\`: the avatar with its own circle, for places that show the image uncropped.
 
 Put Yakkety on \`paper\`, \`white\` or the cream tile only, never on \`blue\`, \`orange\` or \`midnight\`. Keep a quarter of its width as clear space. No props, outlines, shadows, cropping or stretching.
 `);
