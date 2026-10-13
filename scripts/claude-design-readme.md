@@ -62,7 +62,8 @@ A biweekly runs: `CoverSlide` (doubles as the opener) → `AgendaSlide` (section
 
 - Yakkety is the YAC's AI secretary, a Toffee yak. Use the `Yakkety` assets: `yakkety-idle` by default, `yakkety-thinking` while working, `yakkety-needs-you` when waiting on someone, `yakkety-oops` for a failure, and `yakkety-done` only for real wins.
 - For a round profile picture (Google Chat, Yaktion Items) use `yakkety-avatar` (the platform crops the circle) or `yakkety-avatar-circle` where nothing crops it; for an app icon use `yakkety-icon`.
-- Place it on `paper`, `white` or `yakkety-cream-tile` only, with a quarter of its width as clear space. Never on `blue`, `orange` or `midnight`, never recoloured, cropped or given props.
+- For the name as a logo, use `yakkety-wordmark-toffee` (lowercase "yakkety"; `-chocolate` on the cream tile or when small, `-white` on dark), or a lockup with the mascot: `yakkety-lockup-horizontal-light` for headers and footers, `yakkety-lockup-stacked-light` for title slides. Never retype the name in a font to imitate it. In running text it's written Yakkety.
+- Place the mascot on `paper`, `white` or `yakkety-cream-tile` only, with a quarter of its width as clear space. Never on `blue`, `orange` or `midnight`, never recoloured, cropped or given props. On a dark background use `yakkety-lockup-horizontal-dark` or `yakkety-lockup-stacked-dark`, which put it on its cream circle.
 - It appears when it has something to say: tech updates, the AI workshop, a status. It is not decoration on every slide.
 
 ## Iconography

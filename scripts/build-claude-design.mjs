@@ -355,6 +355,15 @@ const ASSETS = {
       "yakkety-avatar.svg": ["905b6fef8929890f4b495ed8c250bb3c", "yakkety-mascot/avatar/yakkety-avatar.svg"],
       "yakkety-avatar-circle.svg": ["0211c13d6b7167f02df39ee3b39fe37c", "yakkety-mascot/avatar/yakkety-avatar-circle.svg"],
       "yakkety-avatar-512.png": ["987a8947a60fe7acd71975339d26807b", "yakkety-mascot/avatar/yakkety-avatar-512.png"],
+      "yakkety-wordmark-toffee.svg": ["d6fd77af8d9796d470f7b59cb7c86677", "yakkety-mascot/wordmark/yakkety-wordmark-toffee.svg"],
+      "yakkety-wordmark-chocolate.svg": ["9c8c835c1c237a4e0c778bc77f76f836", "yakkety-mascot/wordmark/yakkety-wordmark-chocolate.svg"],
+      "yakkety-wordmark-white.svg": ["24cf83fc60a79fc65e6af727d1666a1a", "yakkety-mascot/wordmark/yakkety-wordmark-white.svg"],
+      "yakkety-wordmark-toffee.png": ["1011584ed98eefe485e001ba32f79f65", "yakkety-mascot/wordmark/png/yakkety-wordmark-toffee.png"],
+      "yakkety-lockup-horizontal-light.svg": ["e2744643973778af0ed209927a68d2b6", "yakkety-mascot/wordmark/yakkety-lockup-horizontal-light.svg"],
+      "yakkety-lockup-horizontal-light.png": ["c01215c897b2a41a646cc1fa892671e5", "yakkety-mascot/wordmark/png/yakkety-lockup-horizontal-light.png"],
+      "yakkety-lockup-horizontal-dark.svg": ["854835c9d58c2229c64f22dbed2a50a1", "yakkety-mascot/wordmark/yakkety-lockup-horizontal-dark.svg"],
+      "yakkety-lockup-stacked-light.svg": ["59079f7dedfcbf1e576c8ea327faf92d", "yakkety-mascot/wordmark/yakkety-lockup-stacked-light.svg"],
+      "yakkety-lockup-stacked-dark.svg": ["eb4a3dd55ef8f81874283a300a77c775", "yakkety-mascot/wordmark/yakkety-lockup-stacked-dark.svg"],
     },
   },
 };
@@ -381,7 +390,7 @@ Never separate the catalyst from the school's name, recolour, stretch or redraw 
 `);
 out("assets/Yakkety/README.md", `# Yakkety
 
-Yakkety, the YAC's AI secretary: a Toffee yak with five expressions, an app icon and a chat avatar. Flat colour in its own palette (\`yakkety-toffee\` and friends); it is not recoloured to Blue or Orange.
+Yakkety, the YAC's AI secretary: a Toffee yak with five expressions, an app icon, a chat avatar, a wordmark and lockups. Flat colour in its own palette (\`yakkety-toffee\` and friends); it is not recoloured to Blue or Orange.
 
 - \`yakkety-idle.svg\`: the default face.
 - \`yakkety-thinking.svg\`: working on something.
@@ -391,8 +400,11 @@ Yakkety, the YAC's AI secretary: a Toffee yak with five expressions, an app icon
 - \`yakkety-icon.svg\`, \`yakkety-icon-512.png\`: app icon on the \`yakkety-cream-tile\` background, rounded corners.
 - \`yakkety-avatar.svg\`, \`yakkety-avatar-512.png\`: round profile picture (Google Chat, Yaktion Items). Square on cream with extra margin, so a platform's circle crop never clips the horns or hooves.
 - \`yakkety-avatar-circle.svg\`: the avatar with its own circle, for places that show the image uncropped.
+- \`yakkety-wordmark-toffee.svg\` / \`.png\`: the name, lowercase "yakkety" in Fredoka Bold as outlines, on \`paper\` or \`white\`. \`yakkety-wordmark-chocolate.svg\` on the cream tile and below about 24px tall; \`yakkety-wordmark-white.svg\` on dark backgrounds. Always use the files; never retype the name in Fredoka or recolour it.
+- \`yakkety-lockup-horizontal-light.svg\` / \`.png\`: mascot beside the wordmark, for headers, signatures and slide footers. \`yakkety-lockup-stacked-light.svg\`: mascot above it, for title slides and square spaces. Don't separate, move or resize the two parts.
+- \`yakkety-lockup-horizontal-dark.svg\`, \`yakkety-lockup-stacked-dark.svg\`: the only way to show Yakkety on \`midnight\` or another dark background: the mascot sits on its cream circle, with the white wordmark.
 
-Put Yakkety on \`paper\`, \`white\` or the cream tile only, never on \`blue\`, \`orange\` or \`midnight\`. Keep a quarter of its width as clear space. No props, outlines, shadows, cropping or stretching.
+Put the bare mascot on \`paper\`, \`white\` or the cream tile only, never on \`blue\`, \`orange\` or \`midnight\` (use a dark lockup there). In running text the name is written Yakkety. Keep a quarter of its width as clear space. No props, outlines, shadows, cropping or stretching.
 `);
 
 // ---------- index ----------
