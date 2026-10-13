@@ -7,26 +7,15 @@ Google Chat shows Yakkety's avatar in two places, and you set it differently in 
 
 Both need the same thing first: a **public HTTPS link to a square PNG or JPEG, at least 256×256**. Use `yakkety-avatar-512.png`. Google Chat crops it to a circle, and the art leaves room for that.
 
-## Step 1: Get a public link to the avatar
+## Step 1: The avatar link
 
-Google's servers fetch the image themselves, so the link must open without signing in. A link into this repo only works if the repo is public; while it is private, GitHub returns "Not found" to Google.
+This repo is public, so Google can load the avatar straight from GitHub:
 
-**Option A: make this repo public (recommended).** It holds only brand art, guidelines and research, with no member data.
-1. On GitHub, open **ncssm-yac/design-system → Settings → General**.
-2. Under **Danger Zone**, click **Change visibility → Make public**, and confirm.
-3. The avatar link is then:
-   ```
-   https://raw.githubusercontent.com/ncssm-yac/design-system/main/yakkety-mascot/avatar/yakkety-avatar-512.png
-   ```
-4. Paste the link into a private (incognito) browser window. You should see the yak, not a GitHub page or an error.
+```
+https://raw.githubusercontent.com/ncssm-yac/design-system/main/yakkety-mascot/avatar/yakkety-avatar-512.png
+```
 
-**Option B: keep the repo private and use Google Drive.**
-1. Upload `yakkety-avatar-512.png` to the YAC shared drive.
-2. Use **Share → General access → Anyone with the link → Viewer**. Your NCSSM Workspace may not allow this; if the option is greyed out, use option A.
-3. Copy the file ID: the long part of the share link between `/d/` and `/view`.
-4. Your avatar link is `https://lh3.googleusercontent.com/d/FILE_ID`. Test it in an incognito window as above. Google doesn't officially support this link format, so it can stop working; option A is more reliable.
-
-Don't move or rename the file after setting it up. Chat keeps loading the image from the link.
+To check it, open the link in an incognito window; you should see the yak on its own. The link keeps working as long as the repo stays public and the file isn't moved or renamed. If the repo is ever made private again, every Yakkety avatar in Chat breaks, so move the image somewhere public first.
 
 ## Step 2a: Incoming webhooks
 
