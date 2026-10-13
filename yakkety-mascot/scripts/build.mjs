@@ -4,7 +4,7 @@
 import { writeFileSync, mkdirSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { STATES, mascotSVG, iconSVG } from "../src/yakkety.mjs";
+import { STATES, mascotSVG, iconSVG, avatarSVG } from "../src/yakkety.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const out = (p, data) => { mkdirSync(dirname(join(root, p)), { recursive: true }); writeFileSync(join(root, p), data); console.log("wrote", p); };
@@ -12,6 +12,8 @@ const out = (p, data) => { mkdirSync(dirname(join(root, p)), { recursive: true }
 for (const s of STATES) out(`svg/yakkety-${s}.svg`, mascotSVG(s));
 out("icon/yakkety-icon.svg", iconSVG("rounded"));
 out("icon/yakkety-icon-square.svg", iconSVG("square"));
+out("avatar/yakkety-avatar.svg", avatarSVG("square"));
+out("avatar/yakkety-avatar-circle.svg", avatarSVG("circle"));
 
 if (process.argv.includes("--png")) {
   const { chromium } = await import("playwright");
@@ -30,6 +32,9 @@ if (process.argv.includes("--png")) {
   }
   for (const size of [180, 512, 1024]) {
     await render("icon/yakkety-icon-square.svg", size, size, `icon/png/yakkety-icon-square-${size}.png`);
+  }
+  for (const size of [256, 512, 1024]) {
+    await render("avatar/yakkety-avatar.svg", size, size, `avatar/yakkety-avatar-${size}.png`);
   }
   for (const s of STATES) await render(`svg/yakkety-${s}.svg`, 840, 848, `png/yakkety-${s}.png`);
 

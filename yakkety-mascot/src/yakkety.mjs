@@ -107,3 +107,21 @@ export function iconSVG(shape = "rounded", c = TOFFEE) {
 </svg>
 `;
 }
+
+/**
+ * Avatar for chat apps and profile pictures: the full-body yak on a cream
+ * background, sized so a circular crop never clips the horns or hooves.
+ * Square PNG/SVG; the platform (Google Chat, etc.) applies the circle.
+ * shape "circle" draws its own circle for places that show the image as is.
+ */
+export function avatarSVG(shape = "square", state = "idle", c = TOFFEE) {
+  // Centre (100,106); the farthest point (horn tip) is ~124 units away
+  const bg = shape === "circle"
+    ? `<circle cx="100" cy="106" r="130" fill="${c.tile}"/>`
+    : `<rect x="-30" y="-24" width="260" height="260" fill="${c.tile}"/>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-30 -24 260 260" width="512" height="512" role="img" aria-label="Yakkety">
+  ${bg}
+  ${character(c, state, false, "avatar")}
+</svg>
+`;
+}

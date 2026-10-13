@@ -2,7 +2,7 @@
 
 <img src="yakkety-mascot/icon/png/yakkety-icon-128.png" width="72" alt="Yakkety app icon">
 
-The shared home for the YAC's visual identity: colours, type, slide templates, NCSSM's marks, mascots and the rules for using them. If you're making something for YAC (slides, a website, an app, a social post), start here so everything looks like it belongs together.
+The shared home for the visual identity of the NCSSM Young Alumni Council (YAC): colours, type, slide templates, NCSSM's marks, mascots and the rules for using them. If you're making something for YAC (slides, a website, an app, a social post), start here so everything looks like it belongs together.
 
 ## The short version
 
@@ -19,7 +19,7 @@ The shared home for the YAC's visual identity: colours, type, slide templates, N
 | [`typography/`](typography/) | Montserrat, weights, the slide type scale and a web scale | v1 |
 | [`slides/`](slides/) | Layout rules, recurring patterns and 12 Claude Design slide templates | v1 |
 | [`ncssm-marks/`](ncssm-marks/) | NCSSM's official logos: catalyst, Foundation, Unicorn, Dragon | Master files from NCSSM |
-| [`yakkety-mascot/`](yakkety-mascot/) | Yakkety, the YAC's AI secretary: a Toffee-coloured yak, with five expressions, app icons, a favicon, colour tokens, usage rules and the research behind it | v1, locked |
+| [`yakkety-mascot/`](yakkety-mascot/) | Yakkety, the YAC's AI Secretary: a Toffee-coloured yak, with five expressions, app icons, chat avatars, a favicon, colour tokens, usage rules and the research behind it | v1, locked |
 | [Claude Design system](https://claude.ai/artifact/UtzAMSDiAoCHeSE4cxQZ8T) | This system published as a Claude Design "Design System", so decks and designs pick it up. Built by `scripts/build-claude-design.mjs` | v1 |
 | [`tokens.css`](tokens.css) | Every token as a CSS variable (`--yac-blue`, `--yac-slide-title-size`, …), generated | — |
 

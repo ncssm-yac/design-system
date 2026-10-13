@@ -2,7 +2,7 @@
 
 <img src="png/yakkety-idle.png" width="180" alt="Yakkety the yak">
 
-Yakkety is the YAC's AI secretary, and its mascot is a fun, friendly yak. The name comes from "yakkety yak" (chatter), and the yak gives us a character almost nobody in AI has.
+Yakkety is the AI Secretary of the NCSSM Young Alumni Council (YAC), and its mascot is a fun, friendly yak. The name comes from "yakkety yak" (chatter), and the yak gives us a character almost nobody in AI has.
 
 Status: **v1, locked** (October 2026). Signature colour: **Toffee**.
 
@@ -10,7 +10,9 @@ Status: **v1, locked** (October 2026). Signature colour: **Toffee**.
 
 | I need… | Use |
 | --- | --- |
-| App icon, avatar, social profile | `icon/png/yakkety-icon-512.png` (or `icon/yakkety-icon.svg`) |
+| Google Chat app or webhook avatar | `avatar/yakkety-avatar-512.png`, see [`docs/google-chat.md`](docs/google-chat.md) |
+| Any other round profile picture | `avatar/yakkety-avatar-512.png` (or `avatar/yakkety-avatar-circle.svg` where nothing crops it) |
+| App icon | `icon/png/yakkety-icon-512.png` (or `icon/yakkety-icon.svg`) |
 | iOS / Android icon (platform applies its own mask) | `icon/png/yakkety-icon-square-1024.png` |
 | Website favicon | `icon/favicon.ico` plus `icon/png/yakkety-icon-180.png` as the Apple touch icon |
 | Mascot in a slide, doc or UI | `svg/yakkety-<state>.svg` (transparent background) or `png/yakkety-<state>.png` |
@@ -75,6 +77,17 @@ Every state changes only the eyes, the mouth and one small extra (thought dots, 
 - The icon is the **whole mascot**, horns to hooves, centred on the cream tile with space on every side. It is never cropped and never a separate head drawing, so it always matches the character.
 - `yakkety-icon.svg` has its own rounded corners (23% radius). `yakkety-icon-square.svg` is full-bleed for platforms that mask icons themselves.
 - At 16px the face details merge, but the horns, fringe and eyes still read as Yakkety.
+
+## Avatar
+
+<img src="avatar/yakkety-avatar-256.png" width="96" alt="Yakkety avatar">
+
+For places that show Yakkety as a round profile picture: Google Chat, the Yaktion Items board, and any future integrations.
+
+- The avatar is the same full-body yak on the cream background, with extra margin so a circular crop never clips the horns or hooves. It reads as Yakkety down to 24px.
+- `yakkety-avatar-{256,512,1024}.png` and `yakkety-avatar.svg` are square; the platform applies the circle. Google Chat needs at least 256×256.
+- `yakkety-avatar-circle.svg` draws its own circle, for places that show the image as is.
+- **Where it's used:** Yaktion Items embeds it in the board (`src/Board.html`, next to Yakkety's comments). Google Chat setup is in [`docs/google-chat.md`](docs/google-chat.md).
 
 ## Usage rules
 
