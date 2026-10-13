@@ -20,6 +20,7 @@ The shared home for the YAC's visual identity: colours, type, slide templates, N
 | [`slides/`](slides/) | Layout rules, recurring patterns and 12 Claude Design slide templates | v1 |
 | [`ncssm-marks/`](ncssm-marks/) | NCSSM's official logos: catalyst, Foundation, Unicorn, Dragon | Master files from NCSSM |
 | [`yakkety-mascot/`](yakkety-mascot/) | Yakkety, the YAC's AI secretary: a Toffee-coloured yak, with five expressions, app icons, a favicon, colour tokens, usage rules and the research behind it | v1, locked |
+| [Claude Design system](https://claude.ai/artifact/UtzAMSDiAoCHeSE4cxQZ8T) | This system published as a Claude Design "Design System", so decks and designs pick it up. Built by `scripts/build-claude-design.mjs` | v1 |
 | [`tokens.css`](tokens.css) | Every token as a CSS variable (`--yac-blue`, `--yac-slide-title-size`, …), generated | — |
 
 ## Using the tokens
@@ -41,6 +42,10 @@ After changing any `tokens.json` or slide template, rebuild the generated files:
 ```bash
 node scripts/build.mjs     # writes tokens.css and slides/preview.html; no dependencies
 ```
+
+## Updating the Claude Design system
+
+The Claude Design copy is generated from this repo. After a change here, run `node scripts/build-claude-design.mjs` and ask Claude to republish `dist/claude-design/project/` to https://claude.ai/artifact/UtzAMSDiAoCHeSE4cxQZ8T. Its brand-book text is `scripts/claude-design-readme.md`. Images live in that system's asset store; a new or changed image is uploaded there first and its id recorded in the script's `ASSETS` table.
 
 ## Conventions
 
