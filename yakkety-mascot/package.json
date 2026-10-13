@@ -1,0 +1,14 @@
+{
+  "name": "yakkety-mascot",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Yakkety, the YAC's AI secretary: mascot art, app icons and tokens",
+  "scripts": {
+    "build": "node scripts/build.mjs --png",
+    "build:svg": "node scripts/build.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.47.0"
+  }
+}

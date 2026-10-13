@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Yakkety Mascot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Nunito+Sans:wght@400;600;700&display=swap">
+<style>
+/* Layout: one hero (mascot + brief), then stacked studies: colourways, icon sizes, expressions, rules */
+:root {
+  --bg: #FFFFFF;
+  --panel: #F6F3F8;
+  --line: #E6E1EB;
+  --fg: #231F2B;
+  --muted: #6B6475;
+  --accent: #E8873A;
+  --display: "Nunito", ui-rounded, "Arial Rounded MT Bold", system-ui, sans-serif;
+  --body: "Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg:#17151C; --panel:#221F29; --line:#332E3C; --fg:#F2EEF6; --muted:#A79FB2; color-scheme: dark }
+}
+:root[data-theme="dark"] { --bg:#17151C; --panel:#221F29; --line:#332E3C; --fg:#F2EEF6; --muted:#A79FB2; color-scheme: dark }
+
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.55; }
+.wrap { max-width: 1040px; margin: 0 auto; padding-inline: 20px; padding-block: 40px 72px; display: grid; gap: 56px; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+h1 { font-size: clamp(40px, 7vw, 64px); font-weight: 900; line-height: 1; }
+h2 { font-size: 26px; font-weight: 900; }
+h3 { font-size: 17px; font-weight: 800; }
+p { margin: 0; }
+.eyebrow { font-family: var(--display); font-weight: 800; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+.muted { color: var(--muted); }
+section { display: grid; gap: 20px; }
+.sec-head { display: grid; gap: 6px; max-width: 65ch; }
+
+.hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+.stage { background: var(--tile); border-radius: 32px; aspect-ratio: 1; max-width: 100%; display: grid; place-items: center; padding: 8%; transition: background .3s; }
+.stage svg { width: 100%; height: 100%; }
+.brief { display: grid; gap: 18px; }
+.brief blockquote { margin: 0; font-size: 17px; border-left: 4px solid var(--accent); padding-left: 16px; }
+.swatches { display: flex; flex-wrap: wrap; gap: 10px; }
+.sw { display: inline-flex; align-items: center; gap: 8px; border: 2px solid var(--line); background: var(--bg); color: var(--fg); border-radius: 999px; padding: 6px 14px 6px 6px; font: 700 14px var(--body); cursor: pointer; }
+.sw i { width: 22px; height: 22px; border-radius: 50%; display: block; }
+.sw[aria-pressed="true"] { border-color: var(--fg); }
+.sw:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.grid { display: grid; gap: 16px; }
+.cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.card { background: var(--panel); border-radius: 20px; padding: 16px; display: grid; gap: 10px; align-content: start; }
+.card .art { background: var(--tile); border-radius: 14px; aspect-ratio: 1; display: grid; place-items: center; padding: 10%; transition: background .3s; }
+.card .art svg { width: 100%; height: 100%; }
+.card p { font-size: 14px; color: var(--muted); }
+
+.icons { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 28px; background: var(--panel); border-radius: 20px; padding: 28px; }
+.icon-col { display: grid; gap: 10px; justify-items: center; }
+.tile { background: var(--tile); border-radius: 23%; overflow: hidden; transition: background .3s; }
+.tile svg { width: 100%; height: 100%; display: block; }
+.tile.dark { background: var(--body-c); }
+.icon-col span { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; text-align: center; }
+
+.rules { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.rules ul { margin: 0; padding-left: 20px; display: grid; gap: 8px; }
+.rules .card { padding: 22px; gap: 12px; }
+
+@media (max-width: 820px) {
+  .hero { grid-template-columns: 1fr; }
+  .cols-5 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cols-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .rules { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) { .cols-5 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+@media (prefers-reduced-motion: no-preference) {
+  .stage svg .blink { animation: blink 5s infinite; transform-origin: center 106px; transform-box: view-box; }
+  @keyframes blink { 0%, 94%, 100% { transform: scaleY(1); } 96% { transform: scaleY(.1); } }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="stage" id="hero" role="img" aria-label="Yakkety the yak, smiling with big eyes under a shaggy fringe"></div>
+    <div class="brief">
+      <span class="eyebrow">Mascot concept · v1</span>
+      <h1>Meet Yakkety.</h1>
+      <p class="muted">The YAC's AI secretary, drawn in a Duo-style language: flat, chunky shapes, huge eyes, no outlines, one bold colour. Built from simple geometric shapes so it holds up from a billboard down to a 16px favicon.</p>
+      <blockquote>A round, shaggy yak whose fringe flops over big confident eyes, with horns that curl up like quotation marks for all that chatter.</blockquote>
+      <div>
+        <h3 style="margin-bottom:10px">Signature colour</h3>
+        <div class="swatches" id="swatches"></div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow">App icon</span>
+      <h2>The whole yak, framed for the icon</h2>
+      <p class="muted">The icon is the full mascot, hooves and all, with room on every side, so it matches the character exactly. At 16px the horns, fringe and eyes still read as Yakkety.</p>
+    </div>
+    <div class="icons" id="icons"></div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow">Expressions</span>
+      <h2>Five states, same parts</h2>
+      <p class="muted">Following Duo's lesson: build an emotional range from day one. Every state changes only the eyes, mouth and one small extra, so the character stays consistent.</p>
+    </div>
+    <div class="grid cols-5" id="states"></div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow">Colourways</span>
+      <h2>One colour has to win</h2>
+      <p class="muted">Duo owns green. Yakkety needs its own colour, and the brand works best if we commit to one. Toffee is my pick: warm, true to a real yak's coat, and far from every AI gradient.</p>
+    </div>
+    <div class="grid cols-4" id="ways"></div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow">Ground rules</span>
+      <h2>What we borrowed, what stays ours</h2>
+    </div>
+    <div class="rules">
+      <div class="card">
+        <h3>Borrowed from Duo's playbook</h3>
+        <ul>
+          <li>Flat colour, no outlines, no gradients</li>
+          <li>Built from circles and rounded shapes only</li>
+          <li>Eyes take up about half the face and carry the emotion</li>
+          <li>One signature colour plus a few tints</li>
+          <li>Full expression set, with the mascot as the brand</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Kept distinct from Duo</h3>
+        <ul>
+          <li>No green; toffee is the signature colour</li>
+          <li>Fringe over the eyes instead of Duo's eye shapes</li>
+          <li>Horns, ears and a shaggy hem give a different silhouette</li>
+          <li>Freckled cheeks and a wide, friendly smile</li>
+          <li>Fun and friendly, but not a baby face (avoids the Jolly backlash)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+const WAYS = [
+  { id: "toffee",   name: "Toffee",            body: "#E8873A", dark: "#B8611E", light: "#FBD3A6", horn: "#A8876A", hoof: "#4E2A12", tile: "#FFE9D2" },
+  { id: "indigo",   name: "Indigo",            body: "#5B63E0", dark: "#3D43B0", light: "#C9CCFB", horn: "#A8876A", hoof: "#1F2360", tile: "#E6E7FF" },
+  { id: "berry",    name: "Berry",             body: "#E0507F", dark: "#B0325C", light: "#FAC6D6", horn: "#A8876A", hoof: "#55112B", tile: "#FFE3EC" },
+  { id: "charcoal", name: "Highland Charcoal", body: "#5A5266", dark: "#3A3444", light: "#CFC6DA", horn: "#A8876A", hoof: "#1A1620", tile: "#ECE8F1" },
+];
+const INK = "#1E1B2E";
+
+function fringe(c) {
+  // Arc over the head, then a row of rounded tufts hanging over the eyes
+  let d = "M34,98 C34,56 64,32 100,32 C136,32 166,56 166,98";
+  const n = 7, w = 132 / n;
+  for (let i = 0; i < n; i++) {
+    const x0 = 166 - i * w, x1 = x0 - w, mid = (x0 + x1) / 2;
+    const base = i === 0 || i === n - 1 ? 92 : 84;
+    const drop = i % 2 ? 100 : 96;
+    d += ` Q${mid.toFixed(1)},${drop} ${x1.toFixed(1)},${base}`;
+  }
+  return `<path d="${d} Z" fill="${c.dark}"/>`;
+}
+
+function eyes(c, state) {
+  if (state === "done") {
+    return `<path d="M58,110 Q74,94 90,110" stroke="${INK}" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <path d="M110,110 Q126,94 142,110" stroke="${INK}" stroke-width="7" fill="none" stroke-linecap="round"/>`;
+  }
+  const look = { idle: [0, 3], thinking: [-6, -4], needs: [0, 1], oops: [7, 4] }[state] || [0, 3];
+  const r = state === "needs" ? 10 : 13;
+  const eye = (cx) => `<circle cx="${cx}" cy="106" r="24" fill="#fff"/>
+    <circle cx="${cx + look[0]}" cy="${106 + look[1]}" r="${r}" fill="${INK}"/>
+    <circle cx="${cx + look[0] - 4}" cy="${106 + look[1] - 5}" r="4.2" fill="#fff"/>`;
+  return `<g class="blink">${eye(74)}${eye(126)}</g>`;
+}
+
+function mouth(c, state) {
+  const s = `stroke="${c.hoof}" stroke-width="3.6" fill="none" stroke-linecap="round" stroke-linejoin="round"`;
+  switch (state) {
+    case "done": return `<path d="M86,147 Q100,168 114,147 Z" fill="${c.hoof}"/><ellipse cx="100" cy="157" rx="6" ry="3.6" fill="#F27B8E"/>`;
+    case "thinking": return `<path d="M93,152 Q101,148 109,153" ${s}/>`;
+    case "needs": return `<ellipse cx="100" cy="152" rx="5" ry="6.5" fill="${c.hoof}"/>`;
+    case "oops": return `<path d="M87,153 q6.5,-5 13,0 q6.5,5 13,0" ${s}/>`;
+    default: return `<path d="M87,147 Q100,161 113,147" ${s}/>`;
+  }
+}
+
+function extra(c, state) {
+  if (state === "thinking") return `<circle cx="176" cy="40" r="4" fill="${c.dark}"/><circle cx="186" cy="26" r="5.5" fill="${c.dark}"/><circle cx="196" cy="9" r="7" fill="${c.dark}"/>`;
+  if (state === "needs") return `<g transform="translate(166,6)"><rect width="30" height="30" rx="10" fill="${INK}"/><path d="M8,30 L4,40 L16,30Z" fill="${INK}"/><rect x="13" y="6" width="4.4" height="12" rx="2.2" fill="#fff"/><circle cx="15.2" cy="23" r="2.4" fill="#fff"/></g>`;
+  if (state === "oops") return `<path d="M44,62 C44,62 34,76 34,82 a10,10 0 0 0 20,0 C54,76 44,62 44,62Z" fill="#8FD3F5"/>`;
+  return "";
+}
+
+let yakCount = 0;
+function yak(c, { state = "idle", icon = false } = {}) {
+  // Two-tone horn, like a real yak: dark base, cream tip
+  const uid = "h" + (++yakCount);
+  const hornPath = "M58,62 C30,60 13,44 18.5,15 C20,6 30.5,5 32.5,13 C35.5,34 48,42 70,42 Z";
+  const horn = `<clipPath id="${uid}"><rect x="0" y="0" width="60" height="31"/></clipPath>
+                <path d="${hornPath}" fill="${c.hoof}"/>
+                <path d="${hornPath}" fill="${c.horn}" clip-path="url(#${uid})"/>`;
+  const ear = `<ellipse cx="30" cy="102" rx="15" ry="8.5" transform="rotate(-24 30 102)" fill="${c.dark}"/>
+               <ellipse cx="31.5" cy="101.5" rx="8" ry="4.2" transform="rotate(-24 31.5 101.5)" fill="${c.light}"/>`;
+  const mirror = (s) => `<g transform="translate(200,0) scale(-1,1)">${s}</g>`;
+  const body = `<path d="M100,34 C142,34 164,60 166,102 C168,142 168,178 152,190 L48,190 C32,178 32,142 34,102 C36,60 58,34 100,34Z" fill="${c.body}"/>
+       <ellipse cx="100" cy="166" rx="42" ry="26" fill="${c.light}"/>
+       <rect x="64" y="184" width="24" height="20" rx="8" fill="${c.hoof}"/>
+       <rect x="112" y="184" width="24" height="20" rx="8" fill="${c.hoof}"/>
+       ${[50, 66, 82, 100, 118, 134, 150].map((x) => `<circle cx="${x}" cy="187" r="10" fill="${c.dark}"/>`).join("")}`;
+  const muzzle = `<ellipse cx="100" cy="142" rx="33" ry="21" fill="${c.light}"/>` +
+    `<ellipse cx="88" cy="136" rx="4.2" ry="3" fill="${c.hoof}"/><ellipse cx="112" cy="136" rx="4.2" ry="3" fill="${c.hoof}"/>`;
+  const vb = icon ? "-14 -10 228 228" : "0 0 200 210";
+  return `<svg viewBox="${vb}" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    ${horn}${mirror(horn)}${ear}${mirror(ear)}
+    ${body}${muzzle}
+    ${[[49,139,3.4],[57,143.5,3.4],[48,147.5,3]].map(([x,y,r]) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${c.dark}"/><circle cx="${200 - x}" cy="${y}" r="${r}" fill="${c.dark}"/>`).join("")}
+    ${eyes(c, state)}${fringe(c)}${mouth(c, state)}
+    ${icon ? "" : extra(c, state)}
+  </svg>`;
+}
+
+const STATES = [
+  ["idle", "Idle", "Default face in chat and on the home screen."],
+  ["thinking", "Thinking", "Working on a task. Eyes drift up, with thought dots."],
+  ["done", "Done", "Task finished. The one big-joy face."],
+  ["needs", "Needs you", "Waiting on a decision or approval."],
+  ["oops", "Oops", "Something failed. Honest, not dramatic."],
+];
+const ICONS = [[128, "App icon"], [64, "Dock"], [32, "Tab"], [16, "Favicon"]];
+
+let current = WAYS[0];
+try { const saved = localStorage.getItem("yak-way"); const w = WAYS.find((x) => x.id === saved); if (w) current = w; } catch (e) {}
+
+function render() {
+  const c = current;
+  document.documentElement.style.setProperty("--tile", c.tile);
+  document.documentElement.style.setProperty("--accent", c.body);
+  document.documentElement.style.setProperty("--body-c", c.body);
+  document.getElementById("hero").innerHTML = yak(c);
+  document.getElementById("swatches").innerHTML = WAYS.map((w) =>
+    `<button class="sw" type="button" id="sw-${w.id}" data-id="${w.id}" aria-pressed="${w === c}"><i style="background:${w.body}"></i>${w.name}</button>`).join("");
+  document.getElementById("icons").innerHTML =
+    ICONS.map(([s, l]) => `<div class="icon-col"><div class="tile" style="width:${s}px;height:${s}px">${yak(c, { icon: true })}</div><span>${l}<br>${s}px</span></div>`).join("") +
+    `<div class="icon-col"><div class="tile dark" style="width:64px;height:64px">${yak({ ...c, body: c.light, light: "#FFFFFF", dark: c.tile }, { icon: true })}</div><span>Reversed<br>64px</span></div>`;
+  document.getElementById("states").innerHTML = STATES.map(([id, name, note]) =>
+    `<div class="card"><div class="art">${yak(c, { state: id })}</div><h3>${name}</h3><p>${note}</p></div>`).join("");
+  document.getElementById("ways").innerHTML = WAYS.map((w) =>
+    `<div class="card"><div class="art" style="background:${w.tile}">${yak(w)}</div><h3>${w.name}${w.id === "toffee" ? " · recommended" : ""}</h3><p>${w.body}</p></div>`).join("");
+}
+
+document.getElementById("swatches").addEventListener("click", (e) => {
+  const b = e.target.closest(".sw"); if (!b) return;
+  current = WAYS.find((w) => w.id === b.dataset.id);
+  try { localStorage.setItem("yak-way", current.id); } catch (err) {}
+  render();
+  document.getElementById("sw-" + current.id).focus();
+});
+render();
+</script>
+</body>
+</html>
