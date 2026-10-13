@@ -53,7 +53,7 @@ A biweekly runs: `CoverSlide` (doubles as the opener) → `AgendaSlide` (section
 ## Logos and marks
 
 - The YAC's own logo is not settled. Don't draw, combine or approximate one; set "Young Alumni Council" in plain `sans` where a name is needed.
-- Use NCSSM's marks from the `NCSSM marks` assets, unchanged. `ncssm-horizontal-fullcolor.png` is the default; `ncssm-abbreviated-fullcolor.png` for square spaces. The catalyst is never separated from the school's name, so there is no catalyst-only file.
+- Use NCSSM's marks from the `NCSSM marks` assets, unchanged, and prefer the SVGs. `ncssm-horizontal-fullcolor.svg` is the default; `ncssm-stacked-fullcolor.svg` where a taller logo fits better (NCSSM's choice for print); `ncssm-abbreviated-fullcolor.svg` for small square spaces. The catalyst is never separated from the school's name, so there is no catalyst-only file.
 - Full-colour marks go on `paper` or `white`. On `blue` or `midnight` use a reversed (white) version; only the Foundation logo has one here (`ncssm-foundation-white.png`).
 - The Unicorn (Durham) and Dragon (Morganton) are athletics mascots: school spirit and clubs only, never in place of the school logo, and never one campus's mascot for the other.
 - Give every mark clear space at least the height of the catalyst. Never stretch, recolour or add effects.
@@ -61,6 +61,7 @@ A biweekly runs: `CoverSlide` (doubles as the opener) → `AgendaSlide` (section
 ## Yakkety
 
 - Yakkety is the YAC's AI secretary, a Toffee yak. Use the `Yakkety` assets: `yakkety-idle` by default, `yakkety-thinking` while working, `yakkety-needs-you` when waiting on someone, `yakkety-oops` for a failure, and `yakkety-done` only for real wins.
+- For a round profile picture (Google Chat, Yaktion Items) use `yakkety-avatar` (the platform crops the circle) or `yakkety-avatar-circle` where nothing crops it; for an app icon use `yakkety-icon`.
 - Place it on `paper`, `white` or `yakkety-cream-tile` only, with a quarter of its width as clear space. Never on `blue`, `orange` or `midnight`, never recoloured, cropped or given props.
 - It appears when it has something to say: tech updates, the AI workshop, a status. It is not decoration on every slide.
 
