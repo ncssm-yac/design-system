@@ -8,7 +8,7 @@ The shared home for the visual identity of the NCSSM Young Alumni Council (YAC):
 
 | Directory | What it is | Status |
 | --- | --- | --- |
-| [`yakkety-mascot/`](yakkety-mascot/) | Yakkety, the YAC's AI Secretary: a Toffee-coloured yak, with five expressions, app icons, chat avatars, a favicon, colour tokens, usage rules and the research behind it | v1, locked |
+| [`yakkety-mascot/`](yakkety-mascot/) | Yakkety, the YAC's AI Secretary: a Toffee-coloured yak, with five expressions, a wordmark and lockups, app icons, chat avatars, a favicon, colour tokens, usage rules and the research behind it | v1, locked |
 
 ## Conventions
 

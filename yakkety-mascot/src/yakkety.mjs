@@ -2,6 +2,8 @@
 // All art is flat SVG built from circles, ellipses and simple curves on a 200 x 210 grid.
 // Run scripts/build.mjs to regenerate the files in svg/ and icon/.
 
+import { WORDMARK } from "./wordmark-data.mjs";
+
 export const TOFFEE = {
   body: "#E8873A", // signature Toffee
   dark: "#B8611E", // fringe, ears, fur hem, freckles
@@ -122,6 +124,65 @@ export function avatarSVG(shape = "square", state = "idle", c = TOFFEE) {
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-30 -24 260 260" width="512" height="512" role="img" aria-label="Yakkety">
   ${bg}
   ${character(c, state, false, "avatar")}
+</svg>
+`;
+}
+
+// ---------------------------------------------------------------------------
+// Wordmark and lockups
+
+
+export const WORDMARK_COLORS = { toffee: TOFFEE.body, chocolate: TOFFEE.hoof, white: "#FFFFFF" };
+
+const [WX, WY, WW, WH] = WORDMARK.viewBox;
+const fmt = (n) => +n.toFixed(2);
+const wordmarkPath = (color) => `<path d="${WORDMARK.d}" fill="${color}"/>`;
+
+/** The "yakkety" wordmark on its own, tightly cropped. color: toffee | chocolate | white */
+export function wordmarkSVG(color = "toffee") {
+  const h = 120, w = fmt((WW / WH) * h);
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${WORDMARK.viewBox.join(" ")}" width="${w}" height="${h}" role="img" aria-label="yakkety">
+  ${wordmarkPath(WORDMARK_COLORS[color])}
+</svg>
+`;
+}
+
+// The mascot's visible extent (no expression extras), in mascot units
+const MASCOT_BOX = [13, 4, 174, 201];
+// The avatar circle's extent, for the dark-background lockup
+const BADGE_BOX = [-30, -24, 260, 260];
+
+/**
+ * Mascot + wordmark.
+ * layout: "horizontal" (headers, signatures, slide footers) or "stacked" (title slides, posters, square spaces)
+ * background: "light" (mascot as drawn, toffee wordmark) or "dark" (mascot on its cream circle, white wordmark)
+ */
+export function lockupSVG(layout = "horizontal", background = "light") {
+  const dark = background === "dark";
+  const [bx, by, bw, bh] = dark ? BADGE_BOX : MASCOT_BOX;
+  const art = dark
+    ? `<circle cx="100" cy="106" r="130" fill="${TOFFEE.tile}"/>${character(TOFFEE, "idle", false, `lockup-${layout}`)}`
+    : character(TOFFEE, "idle", false, `lockup-${layout}`);
+  const word = WORDMARK_COLORS[dark ? "white" : "toffee"];
+  let width, height, mascotT, wordT;
+  if (layout === "stacked") {
+    const s = (bw * 1.92) / WW;                 // wordmark ~1.9x as wide as the mascot
+    const gap = bh * 0.07;
+    width = WW * s; height = bh + gap + WH * s;
+    mascotT = `translate(${fmt((width - bw) / 2 - bx)} ${fmt(-by)})`;
+    wordT = `translate(${fmt(-WX * s)} ${fmt(bh + gap - WY * s)}) scale(${fmt(s * 1e4) / 1e4})`;
+  } else {
+    const s = (MASCOT_BOX[3] * 0.68) / WH;      // wordmark ~2/3 the mascot's height
+    const gap = MASCOT_BOX[2] * 0.17;
+    // Centre the letters' x-height-to-ascender band (not the descenders) on the mascot
+    const baseline = bh / 2 + (-WY * s) / 2;
+    width = bw + gap + WW * s; height = bh;
+    mascotT = `translate(${fmt(-bx)} ${fmt(-by)})`;
+    wordT = `translate(${fmt(bw + gap - WX * s)} ${fmt(baseline)}) scale(${fmt(s * 1e4) / 1e4})`;
+  }
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${fmt(width)} ${fmt(height)}" width="${fmt(width * 2)}" height="${fmt(height * 2)}" role="img" aria-label="Yakkety">
+  <g transform="${mascotT}">${art}</g>
+  <g transform="${wordT}">${wordmarkPath(word)}</g>
 </svg>
 `;
 }

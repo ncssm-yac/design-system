@@ -4,7 +4,7 @@
 import { writeFileSync, mkdirSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { STATES, mascotSVG, iconSVG, avatarSVG } from "../src/yakkety.mjs";
+import { STATES, mascotSVG, iconSVG, avatarSVG, wordmarkSVG, lockupSVG } from "../src/yakkety.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const out = (p, data) => { mkdirSync(dirname(join(root, p)), { recursive: true }); writeFileSync(join(root, p), data); console.log("wrote", p); };
@@ -14,13 +14,15 @@ out("icon/yakkety-icon.svg", iconSVG("rounded"));
 out("icon/yakkety-icon-square.svg", iconSVG("square"));
 out("avatar/yakkety-avatar.svg", avatarSVG("square"));
 out("avatar/yakkety-avatar-circle.svg", avatarSVG("circle"));
+for (const c of ["toffee", "chocolate", "white"]) out(`wordmark/yakkety-wordmark-${c}.svg`, wordmarkSVG(c));
+for (const l of ["horizontal", "stacked"]) for (const bg of ["light", "dark"]) out(`wordmark/yakkety-lockup-${l}-${bg}.svg`, lockupSVG(l, bg));
 
 if (process.argv.includes("--png")) {
   const { chromium } = await import("playwright");
   const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
   const page = await browser.newPage();
   const render = async (svgPath, w, h, dest) => {
-    const svg = readFileSync(join(root, svgPath), "utf8").replace(/width="\d+" height="\d+"/, `width="${w}" height="${h}"`);
+    const svg = readFileSync(join(root, svgPath), "utf8").replace(/width="[\d.]+" height="[\d.]+"/, `width="${w}" height="${h}"`);
     await page.setViewportSize({ width: w, height: h });
     await page.setContent(`<style>html,body{margin:0;background:transparent}svg{display:block}</style>${svg}`);
     const png = await page.screenshot({ omitBackground: true, clip: { x: 0, y: 0, width: w, height: h } });
@@ -35,6 +37,12 @@ if (process.argv.includes("--png")) {
   }
   for (const size of [256, 512, 1024]) {
     await render("avatar/yakkety-avatar.svg", size, size, `avatar/yakkety-avatar-${size}.png`);
+  }
+  const dims = (p) => readFileSync(join(root, p), "utf8").match(/width="([\d.]+)" height="([\d.]+)"/).slice(1).map(Number);
+  for (const f of ["wordmark-toffee", "wordmark-chocolate", "wordmark-white", "lockup-horizontal-light", "lockup-horizontal-dark", "lockup-stacked-light", "lockup-stacked-dark"]) {
+    const [w, h] = dims(`wordmark/yakkety-${f}.svg`);
+    const W = 1600, H = Math.round((h / w) * W);
+    await render(`wordmark/yakkety-${f}.svg`, W, H, `wordmark/png/yakkety-${f}.png`);
   }
   for (const s of STATES) await render(`svg/yakkety-${s}.svg`, 840, 848, `png/yakkety-${s}.png`);
 

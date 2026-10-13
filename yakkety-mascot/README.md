@@ -13,6 +13,9 @@ Status: **v1, locked** (October 2026). Signature colour: **Toffee**.
 | Google Chat app or webhook avatar | `avatar/yakkety-avatar-512.png`, see [`docs/google-chat.md`](docs/google-chat.md) |
 | Any other round profile picture | `avatar/yakkety-avatar-512.png` (or `avatar/yakkety-avatar-circle.svg` where nothing crops it) |
 | App icon | `icon/png/yakkety-icon-512.png` (or `icon/yakkety-icon.svg`) |
+| Logo for a header, signature or slide | `wordmark/yakkety-lockup-horizontal-light.svg` (or `-dark` on dark backgrounds) |
+| Logo for a title slide, poster or square space | `wordmark/yakkety-lockup-stacked-light.svg` (or `-dark`) |
+| The name on its own | `wordmark/yakkety-wordmark-toffee.svg` (`-chocolate` for small sizes, `-white` on dark) |
 | iOS / Android icon (platform applies its own mask) | `icon/png/yakkety-icon-square-1024.png` |
 | Website favicon | `icon/favicon.ico` plus `icon/png/yakkety-icon-180.png` as the Apple touch icon |
 | Mascot in a slide, doc or UI | `svg/yakkety-<state>.svg` (transparent background) or `png/yakkety-<state>.png` |
@@ -89,6 +92,28 @@ For places that show Yakkety as a round profile picture: Google Chat, the Yaktio
 - `yakkety-avatar-circle.svg` draws its own circle, for places that show the image as is.
 - **Where it's used:** Yaktion Items embeds it in the board (`src/Board.html`, next to Yakkety's comments). Google Chat setup is in [`docs/google-chat.md`](docs/google-chat.md).
 
+## Wordmark
+
+<img src="wordmark/png/yakkety-lockup-horizontal-light.png" width="360" alt="Yakkety mascot next to the lowercase yakkety wordmark">
+
+The wordmark is **"yakkety" in lowercase**, set in [Fredoka](https://github.com/google/fonts/tree/main/ofl/fredoka) Bold and converted to outlines. Its rounded letters match the mascot's soft, chunky shapes, and the mascot carries the yak idea, so the word stays simple. In running text, the name is still written **Yakkety**, with a capital Y and two k's.
+
+| File | Use it on |
+| --- | --- |
+| `yakkety-wordmark-toffee` | White or light neutrals. The default. |
+| `yakkety-wordmark-chocolate` | The cream tile, and anywhere the name is under about 24px tall, where toffee gets too light to read |
+| `yakkety-wordmark-white` | Dark backgrounds, photos with a dark area, or a Toffee background |
+| `yakkety-lockup-horizontal-light` / `-dark` | Headers, email signatures, slide footers |
+| `yakkety-lockup-stacked-light` / `-dark` | Title slides, posters, square spaces |
+
+Every file is in `wordmark/` as SVG, with 1600px-wide PNGs in `wordmark/png/`.
+
+- **Dark lockups** put the mascot on its cream circle and use the white wordmark. On a dark background the mascot's chocolate horns and hooves disappear, so never put the bare mascot there.
+- **Lockup proportions are fixed.** Don't move, resize or swap the mascot and the wordmark separately. Use the files as they are.
+- **Clear space:** leave at least the height of the "a" on every side of the wordmark or lockup.
+- **Minimum size:** wordmark 16px tall; horizontal lockup 32px tall; stacked lockup 64px tall. Below that, use the app icon instead.
+- **Don't** recolour the wordmark beyond these three colours, set it in a different font, capitalise it, add effects, or retype it in Fredoka. Always use the files, which keep the exact letter spacing.
+
 ## Usage rules
 
 **Do**
@@ -115,6 +140,8 @@ node scripts/build.mjs           # SVGs only, no dependencies
 npm install && npm run build     # SVGs, PNGs and favicon.ico (uses Playwright)
 ```
 
+The wordmark's letter shapes are saved in `src/wordmark-data.mjs`, so builds don't need the font. To change the lettering, see `scripts/outline-wordmark.py`.
+
 ## How we got here
 
 | Decision | Why |
@@ -126,5 +153,6 @@ npm install && npm run build     # SVGs, PNGs and favicon.ico (uses Playwright)
 | Two-tone horns, dark base with bone tips | Cream horns vanished against the cream tile. Real yak horns are dark with paler tips. |
 | Full-body icon with margin | A head-only crop looked rounder than the mascot, and a chest crop sat flush with the bottom edge |
 | Toffee freckles | Translucent pink blush looked muddy, and solid rose read as too feminine. Freckles read as a friendly outdoor animal. |
+| Lowercase "yakkety" wordmark in Fredoka Bold | Chosen over a capital Y drawn as horns: next to the mascot the plain lowercase is cleaner, and it holds up at small sizes and on dark backgrounds. Nunito and Baloo 2 were also tried; Fredoka matched the mascot best. |
 
-Background research is in [`docs/research.md`](docs/research.md). [`docs/concept-sheet.html`](docs/concept-sheet.html) is the interactive concept sheet used during the design rounds; the colourway switcher on it shows retired options.
+Background research is in [`docs/research.md`](docs/research.md). The wordmark options we compared are in [`docs/wordmark-options.html`](docs/wordmark-options.html). [`docs/concept-sheet.html`](docs/concept-sheet.html) is the interactive concept sheet used during the design rounds; the colourway switcher on it shows retired options.
