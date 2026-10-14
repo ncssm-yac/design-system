@@ -4,12 +4,14 @@
 import { writeFileSync, mkdirSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { STATES, mascotSVG, iconSVG, avatarSVG, wordmarkSVG, lockupSVG } from "../src/yakkety.mjs";
+import { STATES, mascotSVG, iconSVG, emojiSVG, avatarSVG, wordmarkSVG, lockupSVG } from "../src/yakkety.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const out = (p, data) => { mkdirSync(dirname(join(root, p)), { recursive: true }); writeFileSync(join(root, p), data); console.log("wrote", p); };
 
+const emojiName = (s) => (s === "idle" ? "yakkety" : `yakkety-${s}`);
 for (const s of STATES) out(`svg/yakkety-${s}.svg`, mascotSVG(s));
+for (const s of STATES) out(`emoji/${emojiName(s)}.svg`, emojiSVG(s));
 out("icon/yakkety-icon.svg", iconSVG("rounded"));
 out("icon/yakkety-icon-square.svg", iconSVG("square"));
 out("avatar/yakkety-avatar.svg", avatarSVG("square"));
@@ -45,6 +47,7 @@ if (process.argv.includes("--png")) {
     await render(`wordmark/yakkety-${f}.svg`, W, H, `wordmark/png/yakkety-${f}.png`);
   }
   for (const s of STATES) await render(`svg/yakkety-${s}.svg`, 840, 848, `png/yakkety-${s}.png`);
+  for (const s of STATES) await render(`emoji/${emojiName(s)}.svg`, 128, 128, `emoji/png/${emojiName(s)}.png`);
 
   // favicon.ico holding 16, 32 and 48px PNGs
   const pngs = [16, 32, 48].map((s) => [s, readFileSync(join(root, `icon/png/yakkety-icon-${s}.png`))]);

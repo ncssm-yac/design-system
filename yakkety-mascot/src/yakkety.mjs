@@ -128,6 +128,18 @@ export function avatarSVG(shape = "square", state = "idle", c = TOFFEE) {
 `;
 }
 
+/**
+ * Custom chat emoji (Google Chat and similar): the full-body mascot with its
+ * expression extras, in a square box with a thin margin and no background, so
+ * it fills the small emoji slot.
+ */
+export function emojiSVG(state = "idle", c = TOFFEE) {
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -5 216 216" width="128" height="128" role="img" aria-label="Yakkety (${state})">
+  ${character(c, state, true, "emoji")}
+</svg>
+`;
+}
+
 // ---------------------------------------------------------------------------
 // Wordmark and lockups
 

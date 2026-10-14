@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -5 216 216" width="128" height="128" role="img" aria-label="Yakkety (oops)">
+  <defs><clipPath id="emoji-tip"><rect x="0" y="0" width="60" height="31"/></clipPath></defs>
+  <path d="M58,62 C30,60 13,44 18.5,15 C20,6 30.5,5 32.5,13 C35.5,34 48,42 70,42 Z" fill="#4E2A12"/><path d="M58,62 C30,60 13,44 18.5,15 C20,6 30.5,5 32.5,13 C35.5,34 48,42 70,42 Z" fill="#A8876A" clip-path="url(#emoji-tip)"/>
+  <g transform="translate(200,0) scale(-1,1)"><path d="M58,62 C30,60 13,44 18.5,15 C20,6 30.5,5 32.5,13 C35.5,34 48,42 70,42 Z" fill="#4E2A12"/><path d="M58,62 C30,60 13,44 18.5,15 C20,6 30.5,5 32.5,13 C35.5,34 48,42 70,42 Z" fill="#A8876A" clip-path="url(#emoji-tip)"/></g>
+  <ellipse cx="30" cy="102" rx="15" ry="8.5" transform="rotate(-24 30 102)" fill="#B8611E"/><ellipse cx="31.5" cy="101.5" rx="8" ry="4.2" transform="rotate(-24 31.5 101.5)" fill="#FBD3A6"/>
+  <g transform="translate(200,0) scale(-1,1)"><ellipse cx="30" cy="102" rx="15" ry="8.5" transform="rotate(-24 30 102)" fill="#B8611E"/><ellipse cx="31.5" cy="101.5" rx="8" ry="4.2" transform="rotate(-24 31.5 101.5)" fill="#FBD3A6"/></g>
+  <path d="M100,34 C142,34 164,60 166,102 C168,142 168,178 152,190 L48,190 C32,178 32,142 34,102 C36,60 58,34 100,34Z" fill="#E8873A"/>
+  <ellipse cx="100" cy="166" rx="42" ry="26" fill="#FBD3A6"/>
+  <rect x="64" y="184" width="24" height="20" rx="8" fill="#4E2A12"/><rect x="112" y="184" width="24" height="20" rx="8" fill="#4E2A12"/>
+  <circle cx="50" cy="187" r="10" fill="#B8611E"/><circle cx="66" cy="187" r="10" fill="#B8611E"/><circle cx="82" cy="187" r="10" fill="#B8611E"/><circle cx="100" cy="187" r="10" fill="#B8611E"/><circle cx="118" cy="187" r="10" fill="#B8611E"/><circle cx="134" cy="187" r="10" fill="#B8611E"/><circle cx="150" cy="187" r="10" fill="#B8611E"/>
+  <ellipse cx="100" cy="142" rx="33" ry="21" fill="#FBD3A6"/>
+  <ellipse cx="88" cy="136" rx="4.2" ry="3" fill="#4E2A12"/><ellipse cx="112" cy="136" rx="4.2" ry="3" fill="#4E2A12"/>
+  <circle cx="49" cy="139" r="3.4" fill="#B8611E"/><circle cx="151" cy="139" r="3.4" fill="#B8611E"/><circle cx="57" cy="143.5" r="3.4" fill="#B8611E"/><circle cx="143" cy="143.5" r="3.4" fill="#B8611E"/><circle cx="48" cy="147.5" r="3" fill="#B8611E"/><circle cx="152" cy="147.5" r="3" fill="#B8611E"/>
+  <circle cx="74" cy="106" r="24" fill="#FFFFFF"/><circle cx="81" cy="110" r="13" fill="#1E1B2E"/><circle cx="77" cy="105" r="4.2" fill="#FFFFFF"/><circle cx="126" cy="106" r="24" fill="#FFFFFF"/><circle cx="133" cy="110" r="13" fill="#1E1B2E"/><circle cx="129" cy="105" r="4.2" fill="#FFFFFF"/>
+  <path d="M34,98 C34,56 64,32 100,32 C136,32 166,56 166,98 Q156.6,96 147.1,92 Q137.7,100 128.3,84 Q118.9,96 109.4,84 Q100.0,100 90.6,84 Q81.1,96 71.7,84 Q62.3,100 52.9,84 Q43.4,96 34.0,92 Z" fill="#B8611E"/>
+  <path d="M87,153 q6.5,-5 13,0 q6.5,5 13,0" stroke="#4E2A12" stroke-width="3.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M44,62 C44,62 34,76 34,82 a10,10 0 0 0 20,0 C54,76 44,62 44,62Z" fill="#8FD3F5"/>
+</svg>
