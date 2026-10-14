@@ -17,6 +17,7 @@ Status: **v1, locked** (October 2026). Signature colour: **Toffee**.
 | Logo for a title slide, poster or square space | `wordmark/yakkety-lockup-stacked-light.svg` (or `-dark`) |
 | The name on its own | `wordmark/yakkety-wordmark-toffee.svg` (`-chocolate` for small sizes, `-white` on dark) |
 | iOS / Android icon (platform applies its own mask) | `icon/png/yakkety-icon-square-1024.png` |
+| Custom emoji in Google Chat | `emoji/png/yakkety.png` (one per expression), see [Emoji](#emoji) |
 | Website favicon | `icon/favicon.ico` plus `icon/png/yakkety-icon-180.png` as the Apple touch icon |
 | Mascot in a slide, doc or UI | `svg/yakkety-<state>.svg` (transparent background) or `png/yakkety-<state>.png` |
 | Colours | `tokens.json` |
@@ -91,6 +92,24 @@ For places that show Yakkety as a round profile picture: Google Chat, the Yaktio
 - `yakkety-avatar-{256,512,1024}.png` and `yakkety-avatar.svg` are square; the platform applies the circle. Google Chat needs at least 256×256.
 - `yakkety-avatar-circle.svg` draws its own circle, for places that show the image as is.
 - **Where it's used:** Yaktion Items embeds it in the board (`src/Board.html`, next to Yakkety's comments). Google Chat setup is in [`docs/google-chat.md`](docs/google-chat.md).
+
+## Emoji
+
+<img src="emoji/png/yakkety.png" width="32"> <img src="emoji/png/yakkety-thinking.png" width="32"> <img src="emoji/png/yakkety-done.png" width="32"> <img src="emoji/png/yakkety-needs-you.png" width="32"> <img src="emoji/png/yakkety-oops.png" width="32">
+
+Custom emoji for Google Chat, one per expression. Each is the full-body mascot with that expression's extra, in a square with a thin margin and a transparent background. They're 128×128 PNGs in `emoji/png/`, with their SVGs in `emoji/`.
+
+| File | Emoji name |
+| --- | --- |
+| `yakkety.png` | `:yakkety:` |
+| `yakkety-thinking.png` | `:yakkety-thinking:` |
+| `yakkety-done.png` | `:yakkety-done:` |
+| `yakkety-needs-you.png` | `:yakkety-needs-you:` |
+| `yakkety-oops.png` | `:yakkety-oops:` |
+
+**Adding them to Google Chat:** in any chat, click the emoji button, then **Create** next to **Search emojis**. Click **Upload image**, pick the PNG, use the name from the table and click **Save**. Custom emoji are shared across the Google Workspace organization. If **Create** is missing, a Workspace admin needs to turn on **Allow users to create custom emojis** (Admin console > Apps > Google Workspace > Google Chat > Emoji options).
+
+On dark themes the chocolate horns are faint, but the body and eyes still read as Yakkety down to 20px.
 
 ## Wordmark
 
