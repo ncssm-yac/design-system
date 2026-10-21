@@ -46,7 +46,7 @@ const samples = {
   title: "Shape of tonight", number: "01", quote: "“Prototyper Extraordinaire.”", lead: "8:15–9:15 PM",
   "body-large": "Foundation Reception, Fri Oct 16", panel: "How should young alums take part?", body: "Get Claude Code running on your laptop",
   "card-title": "The Fairies", secondary: "Open to anyone, one license left", eyebrow: "GROWING THE YAC", label: "ANNOUNCEMENTS",
-  "label-small": "KICK OFF", footer: "Akhil · 07",
+  "label-small": "KICK OFF", footer: "Akhil",
 };
 const slideStyles = Object.entries(T.type.slide).map(([n, t]) => style(`slide-${n}`, t, { sample: samples[n] }));
 const webStyles = Object.entries(T.type.web).map(([n, t]) => style(`web-${n}`, t, { usage: "Web scale: derived from the slide scale, not yet used in a shipped page." + (t.transform === "uppercase" ? " Uppercase." : "") }));
@@ -262,11 +262,11 @@ const PIECES = [
     guide: "Use it wherever content isn't in yet, so the gap is visible and owned. `border-placeholder` dashed in `mist`, `radius-card`; a `fog` fill for image slots, none for copy. The text is bracketed, in `slate`, and names who supplies it. On Midnight slides use a `night` fill with `haze` text instead.",
   },
   {
-    name: "SlideFooter", sub: "Presenter and slide number, pinned bottom right.",
+    name: "SlideFooter", sub: "Presenter name, pinned bottom right.",
     html: `<div style="position:relative;width:1100px;height:160px;background:#f7f5f0">
   <p style="position:absolute;right:48px;bottom:64px;width:800px;text-align:right;font-size:24px;font-weight:600;letter-spacing:2px;color:#5a6878">Seven &amp; Akhil · 19</p>
 </div>`,
-    guide: "Put it on every content slide; covers and dividers have none. One `slide-footer` line in `slate` (`haze` on Midnight), pinned `right:128px; bottom:64px; width:800px; text-align:right`: `Presenter · NN`, two-digit slide number, `&` between two presenters. A slide with a footer uses padding 128px 128px 160px.",
+    guide: "Put it on every content slide; covers and dividers have none. One `slide-footer` line in `slate` (`haze` on Midnight), pinned `right:128px; bottom:64px; width:800px; text-align:right`: the presenter's first name, `&` between two presenters. No slide numbers, so slides can move at the last minute. A slide with a footer uses padding 128px 128px 160px.",
   },
 ];
 for (const p of PIECES) {
