@@ -27,7 +27,7 @@ Status: **v1** (October 2026). Layout values: [`tokens.json`](tokens.json). Temp
 | `photo-grid.html` | Six photo tiles and a dot-and-date caption | Midnight |
 | `catalyst-tease.html` | "The Catalyst": a glowing Orange dot, no name yet | Midnight |
 | `catalyst-reveal.html` | The dot grows into the member's photo; name and tagline build in | Midnight |
-| `closing.html` | "Before we go": up to five Orange-ruled cards, one Blue card for the next meeting | Paper |
+| `closing.html` | "Before we go": up to five Orange-ruled cards (one is a "Happy birthday" list: picture or initials, name, date), one Blue card for the next meeting | Paper |
 | `event.html` | One event: name, when and where, QR code for the RSVP | Paper |
 | `social-update.html` | Social media update: headline, a frame for the latest post, a Blue "The ask" panel | Paper |
 | `breakout.html` | Breakout rooms: room cards, Plan and Nominate, a minutes panel | Paper |
