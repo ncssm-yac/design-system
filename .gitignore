@@ -1,5 +1,3 @@
 node_modules/
 .DS_Store
 dist/
-# Meeting prep for the yac-biweekly skill: names and draft agendas, never committed
-biweekly/

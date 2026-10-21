@@ -21,7 +21,6 @@ The shared home for the visual identity of the NCSSM Young Alumni Council (YAC):
 | [`ncssm-marks/`](ncssm-marks/) | NCSSM's official logos (SVG and PNG): stacked, horizontal and abbreviated catalyst logos, Foundation, Unicorn, Dragon | Master files from NCSSM |
 | [`yakkety-mascot/`](yakkety-mascot/) | Yakkety, the YAC's AI Secretary: a Toffee-coloured yak, with five expressions, a wordmark and lockups, app icons, chat avatars, custom emoji, a favicon, colour tokens, usage rules and the research behind it | v1, locked |
 | [Claude Design system](https://claude.ai/artifact/UtzAMSDiAoCHeSE4cxQZ8T) | This system published as a Claude Design "Design System", so decks and designs pick it up. Built by `scripts/build-claude-design.mjs` | v1 |
-| [`.claude/skills/yac-biweekly/`](.claude/skills/yac-biweekly/SKILL.md) | The biweekly deck assistant: an exec officer talks to it, and it plans the agenda, writes an outline, builds the deck from the slide templates and exports it to Google Slides | v1 |
 | [`tokens.css`](tokens.css) | Every token as a CSS variable (`--yac-blue`, `--yac-slide-title-size`, …), generated | — |
 
 ## Using the tokens
@@ -48,11 +47,9 @@ node scripts/build.mjs     # writes tokens.css and slides/preview.html; no depen
 
 The Claude Design copy is generated from this repo. After a change here, run `node scripts/build-claude-design.mjs` and ask Claude to republish `dist/claude-design/project/` to https://claude.ai/artifact/UtzAMSDiAoCHeSE4cxQZ8T. Its brand-book text is `scripts/claude-design-readme.md`. Images live in that system's asset store; a new or changed image is uploaded there first and its id recorded in the script's `ASSETS` table.
 
-## The biweekly deck skill
+## What does not belong here
 
-Executive officers prepare the biweekly deck by talking to Claude Code in this repo; the `yac-biweekly` skill does the rest. It reads the exec and leadership minutes and the last meeting's notes, asks the exec what is missing, writes a short outline to `biweekly/YYYY.MM.DD/outline.md`, builds the deck as a Claude Slides artifact from [`slides/templates/`](slides/templates/), takes changes, and exports to Google Slides when the exec says "export". Working files live in `biweekly/`, which is gitignored (it holds member names).
-
-The export uses [`scripts/export-gslides.mjs`](scripts/export-gslides.mjs), which needs Playwright with Chromium (`npm i -g playwright`; cloud sessions already have Chromium under `/opt/pw-browsers`). It replaces the older Claude Chat skill `yac-biweekly-deck-brief`, which stopped at a Claude Design brief.
+This repo only codifies the YAC design system. Workflow assistants and automations that people use (for example the biweekly deck assistant) live in [`ncssm-yac/skills`](https://github.com/ncssm-yac/skills) and read the templates here at run time. Skills that Yakkety itself uses live in the Yakkety repo.
 
 ## Conventions
 

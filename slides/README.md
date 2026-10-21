@@ -8,7 +8,7 @@ Status: **v1** (October 2026). Layout values: [`tokens.json`](tokens.json). Temp
 
 | I need… | Use |
 | --- | --- |
-| A new biweekly deck | Run the `yac-biweekly` skill (`.claude/skills/yac-biweekly/`); it builds from these templates |
+| A new biweekly deck | Use the `yac-biweekly` skill in [`ncssm-yac/skills`](https://github.com/ncssm-yac/skills); it builds from these templates |
 | One slide of a known kind | Copy the matching file from `templates/` into `project/slides/<id>.html` and change the id |
 | Exact colours or sizes | [`../color/`](../color/), [`../typography/`](../typography/), [`tokens.json`](tokens.json) |
 
