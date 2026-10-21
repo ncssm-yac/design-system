@@ -18,7 +18,7 @@ Status: **v1** (October 2026). Layout values: [`tokens.json`](tokens.json). Temp
 | --- | --- | --- |
 | `cover.html` | Eyebrow, big date, time, then a ruled block for the opener | Blue |
 | `agenda.html` | Numbered columns with 6px top rules; the current section in Orange | Paper |
-| `divider.html` | Eyebrow and a 144px section name, vertically centred | Blue |
+| `divider.html` | Eyebrow and a 144px section name, vertically centred, with the presenter's name underneath when a member presents | Blue |
 | `divider-photo.html` | The same over a full-bleed photo, text at the bottom | Blue + photo |
 | `announcements.html` | Three items, each a label and a line beside an Orange left rule | Paper |
 | `statement.html` | Eyebrow, a headline sentence, numbered cards, one Blue key-date card | Paper |
@@ -39,7 +39,7 @@ Text in `[brackets]` is a placeholder. The `<aside>` in each is the speaker note
 
 - **Canvas** 1920 × 1080, **padding** 128px on every side (1664 × 824 inside). With a footer, the bottom padding is 160px.
 - **Title** top-left at the top margin, every time, so it never jumps between slides. Titles are never centred, except on the Catalyst tease.
-- **Footer**: one 24px line, pinned `right:128px; bottom:64px`, right-aligned, Slate: the presenter's first name (`Lily`, `Iesha & Nandhini`). No slide numbers, so slides can be added or moved at the last minute. Covers, dividers and the Catalyst tease have no footer.
+- **Footer**: one 24px line, pinned `right:128px; bottom:64px`, right-aligned, Slate: the presenter's first name (`Lily`, `Iesha & Nandhini`). No slide numbers, so slides can be added or moved at the last minute. Covers, dividers and the Catalyst tease have no footer; a divider names a member presenter on a line under its title instead.
 - **Spacing**: 20px inside blocks, 32px between cards, 64px between columns, 48–96px from title to content. Use `justify-content: space-between` to fill the height rather than leaving the bottom third empty.
 - **Corners**: 16px on cards and panels; ruled cards are square on top and round below (`0 0 16px 16px`); 12px on photo tiles.
 
