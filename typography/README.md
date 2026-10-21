@@ -14,6 +14,10 @@ font-family: Montserrat, Verdana, sans-serif;
 
 In a Claude Design deck, add Montserrat to `faces` in `project/deck.json` with that same `href`.
 
+## Font files
+
+[`fonts/`](fonts/) holds the static Montserrat files a deck needs (Regular, Medium and Semibold with their italics, plus Bold and Bold Italic), under the SIL Open Font License ([`fonts/LICENSE.txt`](fonts/LICENSE.txt)). Install them on any computer that opens or exports a YAC deck as PowerPoint, since a `.pptx` does not carry its fonts. The `prepare-yac-biweekly-deck` skill installs them for you (`scripts/setup.mjs` in [`ncssm-yac/skills`](https://github.com/ncssm-yac/skills)). Web and Claude Design use the Google Fonts link above instead.
+
 ## Weights
 
 | Weight | Used for |
