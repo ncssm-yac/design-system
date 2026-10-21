@@ -27,7 +27,7 @@ Status: **v1** (October 2026). Layout values: [`tokens.json`](tokens.json). Temp
 | `photo-grid.html` | Six photo tiles and a dot-and-date caption | Midnight |
 | `catalyst-tease.html` | "The Catalyst": a glowing Orange dot, no name yet | Midnight |
 | `catalyst-reveal.html` | The dot grows into the member's photo; name and tagline build in | Midnight |
-| `closing.html` | "Before we go": up to five Orange-ruled cards, one Blue card for the next meeting | Paper |
+| `closing.html` | "Before we go": up to five Orange-ruled cards (one is a "Happy birthday" list: picture or initials, name, date), one Blue card for the next meeting | Paper |
 | `event.html` | One event: name, when and where, QR code for the RSVP | Paper |
 | `social-update.html` | Social media update: headline, a frame for the latest post, a Blue "The ask" panel | Paper |
 | `breakout.html` | Breakout rooms: room cards, Plan and Nominate, a minutes panel | Paper |
@@ -39,7 +39,7 @@ Text in `[brackets]` is a placeholder. The `<aside>` in each is the speaker note
 
 - **Canvas** 1920 × 1080, **padding** 128px on every side (1664 × 824 inside). With a footer, the bottom padding is 160px.
 - **Title** top-left at the top margin, every time, so it never jumps between slides. Titles are never centred, except on the Catalyst tease.
-- **Footer**: one 24px line, pinned `right:128px; bottom:64px`, right-aligned, Slate: the presenter's first name (`Lily`, `Iesha & Nandhini`). No slide numbers, so slides can be added or moved at the last minute. Covers, dividers and the Catalyst tease have no footer; a divider names a member presenter on a line under its title instead.
+- **Footer (presenter tag)**: a small round profile picture, 56px, then the presenter's first name (`Lily`, `Iesha & Nandhini`) in a 24px Slate line, pinned `right:128px; bottom:48px`, right-aligned. Use the member's headshot (`<img>` with `object-fit:cover; border-radius:50%`) when there is one; otherwise a Blue circle with their initials in Paper (Night with Haze on Midnight slides). Two presenters get two pictures side by side. No slide numbers, so slides can be added or moved at the last minute. Covers, dividers and the Catalyst tease have no footer; a divider names a member presenter on a line under its title instead.
 - **Spacing**: 20px inside blocks, 32px between cards, 64px between columns, 48–96px from title to content. Use `justify-content: space-between` to fill the height rather than leaving the bottom third empty.
 - **Corners**: 16px on cards and panels; ruled cards are square on top and round below (`0 0 16px 16px`); 12px on photo tiles.
 

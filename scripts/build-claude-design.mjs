@@ -262,11 +262,15 @@ const PIECES = [
     guide: "Use it wherever content isn't in yet, so the gap is visible and owned. `border-placeholder` dashed in `mist`, `radius-card`; a `fog` fill for image slots, none for copy. The text is bracketed, in `slate`, and names who supplies it. On Midnight slides use a `night` fill with `haze` text instead.",
   },
   {
-    name: "SlideFooter", sub: "Presenter name, pinned bottom right.",
+    name: "SlideFooter", sub: "Presenter picture (or initials) and name, pinned bottom right.",
     html: `<div style="position:relative;width:1100px;height:160px;background:#f7f5f0">
-  <p style="position:absolute;right:48px;bottom:64px;width:800px;text-align:right;font-size:24px;font-weight:600;letter-spacing:2px;color:#5a6878">Seven &amp; Akhil</p>
+  <div style="position:absolute;right:48px;bottom:48px;width:800px;display:flex;flex-direction:row;align-items:center;justify-content:flex-end;gap:16px">
+    <div style="width:56px;height:56px;background:#346094;border-radius:50%;display:flex;align-items:center;justify-content:center"><p style="font-size:24px;font-weight:700;letter-spacing:1px;color:#f7f5f0">SS</p></div>
+    <div style="width:56px;height:56px;background:#346094;border-radius:50%;display:flex;align-items:center;justify-content:center"><p style="font-size:24px;font-weight:700;letter-spacing:1px;color:#f7f5f0">AJ</p></div>
+    <p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#5a6878">Seven &amp; Akhil</p>
+  </div>
 </div>`,
-    guide: "Put it on every content slide; covers and dividers have none. One `slide-footer` line in `slate` (`haze` on Midnight), pinned `right:128px; bottom:64px; width:800px; text-align:right`: the presenter's first name, `&` between two presenters. No slide numbers, so slides can move at the last minute. A slide with a footer uses padding 128px 128px 160px.",
+    guide: "Put it on every content slide; covers and dividers have none. A 56px round profile picture (the member's headshot with `object-fit:cover`, or a Blue circle with their initials in Paper when there is no headshot; Night with Haze on Midnight) then the presenter's first name in a `slide-footer` line in `slate` (`haze` on Midnight), pinned `right:128px; bottom:48px; width:800px`, right-aligned: the first name, `&` between two presenters, one picture per presenter. No slide numbers, so slides can move at the last minute. A slide with a footer uses padding 128px 128px 160px.",
   },
 ];
 for (const p of PIECES) {
