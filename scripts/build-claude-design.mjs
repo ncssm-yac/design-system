@@ -264,7 +264,7 @@ const PIECES = [
   {
     name: "SlideFooter", sub: "Presenter name, pinned bottom right.",
     html: `<div style="position:relative;width:1100px;height:160px;background:#f7f5f0">
-  <p style="position:absolute;right:48px;bottom:64px;width:800px;text-align:right;font-size:24px;font-weight:600;letter-spacing:2px;color:#5a6878">Seven &amp; Akhil · 19</p>
+  <p style="position:absolute;right:48px;bottom:64px;width:800px;text-align:right;font-size:24px;font-weight:600;letter-spacing:2px;color:#5a6878">Seven &amp; Akhil</p>
 </div>`,
     guide: "Put it on every content slide; covers and dividers have none. One `slide-footer` line in `slate` (`haze` on Midnight), pinned `right:128px; bottom:64px; width:800px; text-align:right`: the presenter's first name, `&` between two presenters. No slide numbers, so slides can move at the last minute. A slide with a footer uses padding 128px 128px 160px.",
   },
