@@ -5,7 +5,7 @@ The visual identity of NCSSM's Young Alumni Council (YAC): NCSSM Blue as the gro
 - Write the way the YAC talks in its meetings: warm, direct, plain. Speak to members as "you" and the council as "we" ("We're now taking attendance at biweeklies").
 - Sentence case for every title and line ("Before we go", "Shape of tonight"). Uppercase only through the label styles (`slide-eyebrow`, `slide-label`, `slide-label-small`).
 - One idea per slide. Prefer a sentence headline ("Plan a fall outing with your family") to a bulleted list; turn lists into cards, columns or one big number.
-- Separate items on a line with a middle dot (`Fri, Oct 16 · 5:30–7:30 PM`, `Akhil · 07`); use an en dash for ranges (`8:15–9:15 PM`).
+- Separate items on a line with a middle dot (`Fri, Oct 16 · 5:30–7:30 PM`, `Akhil`); use an en dash for ranges (`8:15–9:15 PM`).
 - Never invent a number, a quote or a name. Unknowns stay bracketed with an owner: `[Lily — one-line update]`, `[Photo of Iesha]`.
 - Speaker notes (the slide's `<aside>`) say who presents, for how long, and where facts came from. Links go in the notes, not on the slide; on the slide, use a QR code.
 - Don't put nominee names or members' private details on slides.

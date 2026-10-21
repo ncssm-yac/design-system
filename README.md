@@ -17,7 +17,7 @@ The shared home for the visual identity of the NCSSM Young Alumni Council (YAC):
 | --- | --- | --- |
 | [`color/`](color/) | Brand colours, neutrals, NCSSM accents, contrast pairings | v1 |
 | [`typography/`](typography/) | Montserrat, weights, the slide type scale and a web scale | v1 |
-| [`slides/`](slides/) | Layout rules, recurring patterns and 12 Claude Design slide templates | v1 |
+| [`slides/`](slides/) | Layout rules, recurring patterns and 16 Claude Design slide templates | v1 |
 | [`ncssm-marks/`](ncssm-marks/) | NCSSM's official logos (SVG and PNG): stacked, horizontal and abbreviated catalyst logos, Foundation, Unicorn, Dragon | Master files from NCSSM |
 | [`yakkety-mascot/`](yakkety-mascot/) | Yakkety, the YAC's AI Secretary: a Toffee-coloured yak, with five expressions, a wordmark and lockups, app icons, chat avatars, custom emoji, a favicon, colour tokens, usage rules and the research behind it | v1, locked |
 | [Claude Design system](https://claude.ai/artifact/UtzAMSDiAoCHeSE4cxQZ8T) | This system published as a Claude Design "Design System", so decks and designs pick it up. Built by `scripts/build-claude-design.mjs` | v1 |
@@ -46,6 +46,10 @@ node scripts/build.mjs     # writes tokens.css and slides/preview.html; no depen
 ## Updating the Claude Design system
 
 The Claude Design copy is generated from this repo. After a change here, run `node scripts/build-claude-design.mjs` and ask Claude to republish `dist/claude-design/project/` to https://claude.ai/artifact/UtzAMSDiAoCHeSE4cxQZ8T. Its brand-book text is `scripts/claude-design-readme.md`. Images live in that system's asset store; a new or changed image is uploaded there first and its id recorded in the script's `ASSETS` table.
+
+## What does not belong here
+
+This repo only codifies the YAC design system. Workflow assistants and automations that people use (for example the biweekly deck assistant) live in [`ncssm-yac/skills`](https://github.com/ncssm-yac/skills) and read the templates here at run time. Skills that Yakkety itself uses live in the Yakkety repo.
 
 ## Conventions
 
